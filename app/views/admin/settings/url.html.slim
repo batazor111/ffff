@@ -1,2 +1,39 @@
 h1 URL pattern
-p Select defoltny pattern url
+
+.content
+  .info
+    h2.title
+      strong Select defoltny pattern url
+
+    = form_for :url, url: admin_settings_url_path do |f|
+      ul.btn-radio
+        li
+          input type="radio" checked="" value="one" id="r1" name="item"
+          label class="radio" for="r1"
+            span class="big"
+              span class="small"
+            | example.com/post/(:id)
+
+        li
+          input type="radio" value="one" id="r2" name="item"
+          label class="radio" for="r2"
+            span class="big"
+              span class="small"
+            | example.com/post/(:id)-(:title)
+
+        li
+          input type="radio" value="one" id="r3" name="item"
+          label class="radio" for="r3"
+            span class="big"
+              span class="small"
+            | example.com/(:id)-(:title)
+
+        li
+          input type="radio" value="one" id="r4" name="item"
+          label class="radio" for="r4"
+            span class="big"
+              span class="small"
+            | example.com/(:date)/(:id)-(:title)
+
+      p
+        = f.submit 'UPDATE URL PATTERN', class: "btn-primary"
